@@ -228,9 +228,8 @@ impl EventBuilder {
         T: TimeSupplier,
     {
         let pubkey: PublicKey = keys.public_key();
-        Ok(self
-            .to_unsigned_event_with_supplier(supplier, pubkey)
-            .sign_with_ctx(secp, rng, keys)?)
+        self.to_unsigned_event_with_supplier(supplier, pubkey)
+            .sign_with_ctx(secp, rng, keys)
     }
 
     /// Build [`UnsignedEvent`]
@@ -272,9 +271,8 @@ impl EventBuilder {
         T: TimeSupplier,
     {
         let pubkey: PublicKey = keys.public_key();
-        Ok(self
-            .to_unsigned_pow_event_with_supplier(supplier, pubkey, difficulty)
-            .sign_with_ctx(secp, rng, keys)?)
+        self.to_unsigned_pow_event_with_supplier(supplier, pubkey, difficulty)
+            .sign_with_ctx(secp, rng, keys)
     }
 
     /// Build unsigned POW [`Event`]
