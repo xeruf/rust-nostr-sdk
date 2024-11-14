@@ -14,6 +14,8 @@ pub enum Marker {
     Reply,
     /// Mention
     Mention,
+    /// Custom
+    Custom { custom: String },
 }
 
 impl From<Marker> for nip10::Marker {
@@ -22,6 +24,7 @@ impl From<Marker> for nip10::Marker {
             Marker::Root => Self::Root,
             Marker::Reply => Self::Reply,
             Marker::Mention => Self::Mention,
+            Marker::Custom { custom } => Self::Custom(custom),
         }
     }
 }
@@ -32,6 +35,7 @@ impl From<nip10::Marker> for Marker {
             nip10::Marker::Root => Self::Root,
             nip10::Marker::Reply => Self::Reply,
             nip10::Marker::Mention => Self::Mention,
+            nip10::Marker::Custom(custom) => Self::Custom { custom },
         }
     }
 }

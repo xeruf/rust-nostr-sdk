@@ -76,7 +76,6 @@
 
 ### Removed
 
-* nostr: remove `Marker::Custom` variant ([Yuki Kishimoto])
 * pool: remove `Relay::support_negentropy` ([Yuki Kishimoto])
 * pool: remove `Error::NotConnectedStatusChanged` variant ([Yuki Kishimoto])
 
