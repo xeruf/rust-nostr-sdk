@@ -970,7 +970,7 @@ where
                         let marker = if marker.is_empty() {
                             None
                         } else {
-                            Some(Marker::from_str(marker)?)
+                            Some(Marker::from(marker))
                         };
                         let public_key = PublicKey::from_hex(public_key)?;
                         (marker, Some(public_key))
@@ -979,13 +979,7 @@ where
                         if marker.is_empty() {
                             (None, None)
                         } else {
-                            match Marker::from_str(marker) {
-                                Ok(marker) => (Some(marker), None),
-                                Err(..) => {
-                                    let public_key = PublicKey::from_hex(marker)?;
-                                    (None, Some(public_key))
-                                }
-                            }
+                            (Some(Marker::from(marker)), None)
                         }
                     }
                     (None, Some(public_key)) => {
